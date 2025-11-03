@@ -11,3 +11,5 @@ let MOCK_WEATHER = {
   "Helsingborg": { tempC: 9, description: "Halvklart", icon: "⛅", updated: "09:00" },
   "Kiruna": { tempC: -3, description: "Snö", icon: "❄️", updated: "09:00" }
 };
+
+export default MOCK_WEATHER;
