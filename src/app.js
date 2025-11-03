@@ -14,15 +14,17 @@ let MOCK_WEATHER = {
 
 // helps match the object item format with user input format
 function capitalizeFirstLetter(value) {
-    return String(value).charAt(0).toUpperCase() + String(value).substring(1);
+    return String(value).charAt(0).toUpperCase() + String(value).substring(1).toLocaleLowerCase();
 }
 
+// find html items
 const searchBtn = document.querySelector("#submitBtn");
 const inputField = document.querySelector("#search");
 const weatherDisplay = document.querySelector("#weatherResult");
 
 console.log(MOCK_WEATHER.Göteborg.description);
 
+// let user search using search button
 searchBtn.addEventListener("click", () => {
     const city = capitalizeFirstLetter(inputField.value);
     // if (city !== MOCK_WEATHER[city]) {
