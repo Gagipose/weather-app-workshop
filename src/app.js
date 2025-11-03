@@ -22,23 +22,22 @@ const searchBtn = document.querySelector("#submitBtn");
 const inputField = document.querySelector("#search");
 
 // find html output items
-const weatherDisplay = document.querySelector("#weatherResult");
+const result = document.querySelector("#weatherResult");
 const cityName = document.querySelector("#cityName");
 const temperature = document.querySelector("#temperature");
 const description = document.querySelector("#description");
 const icon = document.querySelector("#icon");
 const updatedTime = document.querySelector("#updatedTime");
 
-console.log(MOCK_WEATHER.Göteborg.description);
-
 // let user search using search button
 searchBtn.addEventListener("click", () => {
     const city = capitalizeFirstLetter(inputField.value);
-    // if (city !== MOCK_WEATHER[city]) {
-    //     console.log("finns ej")
-    // }
+    if (!MOCK_WEATHER[city]) {
+            console.log("Not found! format example: göteborg or Malmö")
+            result.innerHTML = "<h2> Not found! format example: göteborg or Malmö </h2>";
+            return;
+        } // gets stuck when searching again before manual refresh
     
-    console.log(MOCK_WEATHER[city].icon)
     
     cityName.textContent = city
     temperature.textContent = `${MOCK_WEATHER[city].tempC}°`
@@ -46,7 +45,4 @@ searchBtn.addEventListener("click", () => {
     icon.textContent = MOCK_WEATHER[city].icon
     updatedTime.textContent = MOCK_WEATHER[city].updated
     
-    
-    console.log(city);
-    console.log(MOCK_WEATHER[city]);
 });
