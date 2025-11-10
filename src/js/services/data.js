@@ -1,5 +1,5 @@
 // data.js
-let MOCK_WEATHER = {
+export const MOCK_WEATHER = {
   "Stockholm": { tempC: 7, description: "Mulet", icon: "☁️", updated: "09:00" },
   "Göteborg": { tempC: 8, description: "Lätt regn", icon: "🌧️", updated: "09:00" },
   "Malmö": { tempC: 10, description: "Klart", icon: "☀️", updated: "09:00" },
@@ -11,5 +11,3 @@ let MOCK_WEATHER = {
   "Helsingborg": { tempC: 9, description: "Halvklart", icon: "⛅", updated: "09:00" },
   "Kiruna": { tempC: -3, description: "Snö", icon: "❄️", updated: "09:00" }
 };
-
-export default MOCK_WEATHER;
