@@ -5,52 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer type="module" src="./js/main.js"></script>
     <link rel="stylesheet" href="style.css">
+    <!--FONTS-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Väder</title>
 </head>
 <body>
     <header>
-        <input type="search" placeholder="Sök på stad...">
-        <button><img src="./icons/search.svg" alt="sökikon"></button>
+        <div id="searchBar">
+            <input type="search" placeholder="Sök på stad...">
+            <button><img src="./icons/search.svg" alt="sökikon"></button>
+        </div>
     </header>
 
     <main>
         <div>
             <h1>Vädret idag</h1>
-            <h2>Måndag 3 november</h2>
+            <h2 class="lightText">Måndag 3 november</h2>
         </div>
 
         <section id="container">
             <div class="weatherCard">
-                <h3 id="city">Stockholm</h3>
+                <h3 class="cityHeader" id="city">Stockholm</h3>
+                <p class="weatherIcon" id="icon">☀️</p>
                 <div>
-                    <p class="weatherIcon" id="icon">☀️</p>
-                    <div>
-                        <p class="time">kl. 09:00</p>
-                        <p class="degrees" id="temp">6°C</p>
-                        <p class="weatherDescription" id="description">Halvklart</p>
+                    <p class="time">kl. 09:00</p>
+                    <div class="degreesContainer">
+                        <p class="degrees">6</p>
+                        <p class="degreesIcon">°C</p>
                     </div>
+                    <p class="weatherDescription lightText" id="description">Halvklart</p>
                 </div>
             </div>
+
             <div class="weatherCard">
-                <h3>Göteborg</h3>
+                <h3 class="cityHeader">Göteborg</h3>
+                <p class="weatherIcon">☀️</p>
                 <div>
-                    <p class="weatherIcon">☀️</p>
-                    <div>
-                        <p class="time">kl. 09:00</p>
-                        <p class="degrees">6°C</p>
-                        <p class="weatherDescription">Halvklart</p>
+                    <p class="time">kl. 09:00</p>
+                    <div class="degreesContainer">
+                        <p class="degrees">6</p>
+                        <p class="degreesIcon">°C</p>
                     </div>
+                    <p class="weatherDescription lightText">Halvklart</p>
                 </div>
             </div>
+            
             <div class="weatherCard">
-                <h3>Malmö</h3>
-                <div>
-                    <p class="weatherIcon">☀️</p>
-                    <div>
-                        <p class="time">kl. 09:00</p>
-                        <p class="degrees">6°C</p>
-                        <p class="weatherDescription">Halvklart</p>
+                <h3 class="cityHeader">Malmö</h3>
+                <p class="weatherIcon">☀️</p>
+                <div class="weatherInfo">
+                    <p class="time">kl. 09:00</p>
+                    <div class="degreesContainer">
+                        <p class="degrees">6</p>
+                        <p class="degreesIcon">°C</p>
                     </div>
+                    <p class="weatherDescription lightText">Halvklart</p>
                 </div>
             </div>
         </section>
