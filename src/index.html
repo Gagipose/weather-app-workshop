@@ -3,22 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="./app.js"></script>
+    <script defer type="module" src="./js/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Väder</title>
 </head>
 <body>
-    <div id="search-area">
-        <label for="search">Enter a Swedish city:</label>
-        <input type="search" name="search" id="search">
-        <button type="submit" id="submitBtn">Search</button>
-    </div>
+    <header>
+        <input type="search" placeholder="Sök på stad...">
+        <button><img src="./icons/search.svg" alt="sökikon"></button>
+    </header>
 
-    <div id="weatherResult" class="card-hidden">
-        <h2 id="cityName">cityName</h2>
-        <p id="temperature">temprature</p>
-        <p id="description">description</p>
-        <span id="icon">icon</span>
-        <p id="updatedTime">updatedTime</p>
-    </div>
+    <main>
+        <div>
+            <h1>Vädret idag</h1>
+            <h2>Måndag 3 november</h2>
+        </div>
+
+        <section id="container">
+            <div class="weatherCard">
+                <h3>Stockholm</h3>
+                <div>
+                    <p class="weatherIcon">☀️</p>
+                    <div>
+                        <p class="time">kl. 09:00</p>
+                        <p class="degrees">6°C</p>
+                        <p class="weatherDescription">Halvklart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weatherCard">
+                <h3>Göteborg</h3>
+                <div>
+                    <p class="weatherIcon">☀️</p>
+                    <div>
+                        <p class="time">kl. 09:00</p>
+                        <p class="degrees">6°C</p>
+                        <p class="weatherDescription">Halvklart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weatherCard">
+                <h3>Malmö</h3>
+                <div>
+                    <p class="weatherIcon">☀️</p>
+                    <div>
+                        <p class="time">kl. 09:00</p>
+                        <p class="degrees">6°C</p>
+                        <p class="weatherDescription">Halvklart</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

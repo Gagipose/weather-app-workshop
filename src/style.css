@@ -1,0 +1,40 @@
+/* ----- FÄRGPALETT ----- */
+:root {
+    --color-white: #fff;
+    --color-grey-light: #ccc;
+}
+
+/* ----- DEFAULTS ----- */
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- GLOBALT ----- */
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url(./images/background.jpg);   background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* ----- SÖKBAR ----- */
+input {
+    margin-top: 20px;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 50px;
+    color: #ccc;
+}
+
+button img {
+    width: 16px;
+}
+
+/* ----- CARDS ----- */
+#container {
+    display: flex;
+}
+
