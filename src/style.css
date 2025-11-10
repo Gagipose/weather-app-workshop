@@ -1,4 +1,4 @@
-/* ----- FÄRGPALETT ----- */
+/* ----- COLOR PALATTE ----- */
 :root {
     --color-white: #fff;
     --color-grey-light: #ccc;
@@ -6,12 +6,46 @@
 
 /* ----- DEFAULTS ----- */
 * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Inter;
+    font-weight: 400;
 }
 
-/* ----- GLOBALT ----- */
+/* ----- FONTS ----- */
+body {
+    color: var(--color-white);
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 1.2rem
+}
+
+.degrees {
+    font-size: 3rem;
+}
+
+.lightText {
+    color: var(--color-grey-light);
+}
+
+/* ----- GLOBAL ----- */
 body {
     display: flex;
     flex-direction: column;
@@ -20,22 +54,82 @@ body {
     height: 100vh;
 }
 
-/* ----- SÖKBAR ----- */
+/* ----- SEARCH BAR ----- */
+#searchBar {
+    position: relative;
+    display: inline-block;
+}
+
 input {
-    margin-top: 20px;
+    margin: 30px 0;
     border: none;
+    height: 40px;
+    width: 450px;
     padding: 5px 20px;
     border-radius: 50px;
-    color: #ccc;
+    color: var(--color-grey-light);
+}
+
+input:focus {
+  outline: 2px solid #ccc;
 }
 
 button img {
     width: 16px;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%; /*Centrerar vertikalt i header*/
+    transform: translateY(-50%); /*Centrerar sig självt*/
+    right: 20px;
+}
+
+
 /* ----- CARDS ----- */
 #container {
     display: flex;
+    justify-self: center;
     color: var(--color-white);
+    margin-top: 50px;
 }
 
+.weatherCard {
+    display: grid;
+    border-radius: 25px;
+    padding: 40px;
+    margin: 10px;
+    grid-template-areas: 
+    "city city"
+    "icon info"
+    ;
+
+    /*Glass effect*/
+    backdrop-filter: blur(20px);
+    background-color: #ffffff1e;
+    border-radius: 25px;
+    border: 1px solid #ffffff73;
+    box-shadow: 0 8px 32px #cccccca9,
+    inset 0 0 20px 10px #ffffff73;
+}
+
+.cityHeader {
+    grid-area: city;
+}
+
+.weatherIcon {
+    grid-area: icon;
+    font-size: 6rem;
+    line-height: 1;
+}
+
+.weatherInfo {
+    grid-area: info;
+    align-self: center;
+}
+
+.degreesContainer {
+    display: flex; /*Sätter gradtecknet bredvid siffran*/
+}
