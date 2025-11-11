@@ -15,9 +15,10 @@
 // import {search} from "./utils/apelsin.js";
 // search();
 
-import * as api from "./services/api.js";
-import { findCity } from "./components/displayWeather.js";
 
-api.getLink("Lund")
-api.getWeather()
+import  {getWeather} from "./services/api.js";
+import { findCity } from "./components/displayWeather.js";
+import { displayWeather } from "./components/displayWeather.js";    
+getWeather("Lund")
 findCity()
+displayWeather("Lund")

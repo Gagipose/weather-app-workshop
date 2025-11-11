@@ -22,7 +22,23 @@
 //     icon.textContent = cityIcon;
 // }
 
+import { getWeather } from "../services/api.js";
+export async function displayWeather(city) {
+     try {
+      const weather = await getWeather(city);
 
+      const time = weather.time
+      const temperaturer = weather.temperaturer
+      // Fortsätta med detta. Text content
+      //tempElement.textContent=temperaturer
+      console.log(`
+         ${time} 
+         ${temperaturer}`)
+
+        } catch (error){
+            console.error(error)
+        }
+}
 export function findCity() {
 
     const searchField = document.querySelector("input");
@@ -32,8 +48,8 @@ export function findCity() {
             const search = searchField.value;
             const searchModify = search.charAt(0).toUpperCase() + search.slice(1).toLowerCase() //Formaterar till stor första bokstav resten små
 
-            if(searchModify === CITIES[city]) {
-                console.log("hej")
+            if(CITIES.includes(searchModify)) {
+                console.log("hej" + searchModify);
             }
         }
     })

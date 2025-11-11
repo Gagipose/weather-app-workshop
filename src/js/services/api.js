@@ -11,23 +11,18 @@ const CITIES = {
 	"Lund": { country: "SE", lat: 55.7047, lon: 13.1910 }
 };
 
-let lat = 0
-let lon = 0
-let url = ""
 
-export function getLink(city) {
-    lat = CITIES[city].lat
-    lon = CITIES[city].lon
-    url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-}
-
-export async function getWeather() {
+export async function getWeather(city) {
+    const lat = CITIES[city].lat
+    const lon = CITIES[city].lon
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
     
     try {
         const response = await fetch(url)
         const data = await response.json()
         
         console.log(data.current_weather)
+        return data.current_weather 
         console.log(url)
 
     } catch(error) {
