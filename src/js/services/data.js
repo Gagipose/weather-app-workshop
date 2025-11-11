@@ -13,10 +13,3 @@
 // };
 
 
-const CITIES = {
-	"Stockholm": { country: "SE", lat: 59.3293, lon: 18.0686 },
-	"Göteborg": { country: "SE", lat: 57.7089, lon: 11.9746 },
-	"Malmö": { country: "SE", lat: 55.6050, lon: 13.0038 },
-	"Uppsala": { country: "SE", lat: 59.8586, lon: 17.6389 },
-	"Lund": { country: "SE", lat: 55.7047, lon: 13.1910 }
-};

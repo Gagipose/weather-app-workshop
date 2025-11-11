@@ -26,6 +26,7 @@ export async function getWeather() {
     try {
         const response = await fetch(url)
         const data = await response.json()
+        
         console.log(data.current_weather)
         console.log(url)
 

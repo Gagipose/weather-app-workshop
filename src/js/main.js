@@ -16,6 +16,8 @@
 // search();
 
 import * as api from "./services/api.js";
+import { findCity } from "./components/displayWeather.js";
 
 api.getLink("Lund")
 api.getWeather()
+findCity()

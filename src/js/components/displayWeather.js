@@ -23,5 +23,18 @@
 // }
 
 
+export function findCity() {
 
+    const searchField = document.querySelector("input");
+    
+    searchField.addEventListener("keydown", (event) => {
+        if(event.key === "Enter") {
+            const search = searchField.value;
+            const searchModify = search.charAt(0).toUpperCase() + search.slice(1).toLowerCase() //Formaterar till stor första bokstav resten små
 
+            if(searchModify === CITIES[city]) {
+                console.log("hej")
+            }
+        }
+    })
+}
