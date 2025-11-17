@@ -21,9 +21,9 @@ export async function getWeather(city) {
         const response = await fetch(url)
         const data = await response.json()
         
-        console.log(data.current_weather)
+        // console.log(data.current_weather)
         return data.current_weather 
-        console.log(url)
+        // console.log(url)
 
     } catch(error) {
         console.error(`Ett fel uppstod: ${error}`)
