@@ -1,0 +1,182 @@
+/* ----- COLOR PALATTE ----- */
+:root {
+    --color-white: #fff;
+    --color-grey-light: #ccc;
+}
+
+/* ----- DEFAULTS ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+    font-weight: 400;
+}
+
+/* ----- FONTS ----- */
+body {
+    background-color: black;
+    color: var(--color-white);
+    text-align: center;
+}
+
+
+/* ----- SEARCH BAR ----- */
+#searchBar {
+    position: relative;
+    display: inline-block;
+}
+
+input {
+    margin: 30px 0;
+    border: none;
+    height: 40px;
+    width: 650px;
+    padding: 5px 20px;
+    border-radius: 50px;
+    color: var(--color-grey-light);
+}
+
+input:focus {
+  outline: 2px solid #ccc;
+}
+
+button img {
+    width: 16px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%; /*Centrerar vertikalt i header*/
+    transform: translateY(-50%); /*Centrerar sig självt*/
+    right: 20px;
+}
+
+
+/* ----- CARDS ----- */
+
+#container {
+    display: flex;
+  gap: 20px;
+  align-content: start;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+ 
+}
+
+.weatherCard1 {
+    width: 150px;
+  height: 550px;
+
+     /*Glass effect*/
+    backdrop-filter: blur(20px);
+    background-color: #ffffff1e;
+    border-radius: 25px;
+    border: 1px solid #ffffff73;
+    box-shadow: 0 8px 32px #cccccca9,
+    inset 0 0 20px 10px #ffffff73;
+    border-radius: 25px;
+    
+}
+.weatherCard2 {
+    width: 450px;
+    height: 550px;
+   
+    /*Glass effect*/
+    backdrop-filter: blur(20px);
+    background-color: #ffffff1e;
+    border-radius: 25px;
+    border: 1px solid #ffffff73;
+    box-shadow: 0 8px 32px #cccccca9,
+    inset 0 0 20px 10px #ffffff73;
+    border-radius: 25px;
+    
+}
+.weatherCard1 p{
+    margin: 0.3rem 0;
+    
+    word-wrap: break-word;
+}
+.day {
+font-size: 0.75rem ;
+text-align: start;
+    
+}
+.date{
+    font-size: 0.50rem ;
+    text-align: start;
+    
+}
+.temperature {
+    font-size: 0.5rem ;
+    text-align: end;
+}
+.weatherCard1 h2{
+    text-align: center;
+    font-size: 0.80rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.weatherCard2 h3{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h4{
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h5{
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+.temperature2{
+    font-size: 5rem ;
+    margin-top: 100px;
+    text-align: end;
+}
+
+@media (max-width: 768px) {
+     #container {
+        flex-direction: column;  
+        align-items: center;     
+     
+        }   
+   .weatherCard2 {
+        order: 0; 
+        
+    }
+
+    .weatherCard1 {
+        order: 1;  
+    }
+   
+    
+    .weatherCard2 {
+        width: 90%;  
+        height: auto; 
+        margin-top: 1rem;
+    }
+
+    .weatherCard1 {
+        width: 90%;   
+        height: 100px; 
+        margin-top: 1rem;
+    }
+
+
+
+      #searchBar input {
+        width: 90%;       
+        max-width: 400px; 
+        height: 50px;     
+        padding: 25px 40px;
+        margin: 20px 30px;
+    }
+}
