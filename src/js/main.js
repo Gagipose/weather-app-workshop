@@ -1,6 +1,6 @@
 import { getWeather } from "./services/api.js";
 import { createWeatherBox } from "./components/WeatherBox.js";
-import { getDayName, getMonthName, getTime } from "./services/time.js";
+import { getDayName, getMonthName } from "./services/time.js";
 import { createNewElement } from "./components/createElement.js";
 // import { findCity } from "./components/displayWeather.js";
 
@@ -26,14 +26,12 @@ function init() {
 init()
 
 
-
 async function displayWeather(city) {
-
     const landingSection = document.querySelector("#container")
 
     try {
         let data = await getWeather(city)
-        let newWeatherBox = createWeatherBox(data)
+        let newWeatherBox = createWeatherBox(data, city)
         landingSection.appendChild(newWeatherBox)
 
     } catch(error) {

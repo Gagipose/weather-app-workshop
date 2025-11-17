@@ -1,12 +1,12 @@
-export function createWeatherBox(data, time) {
+export function createWeatherBox(data, city) {
     const weatherBox = document.createElement("div")
     weatherBox.classList.add("weatherBox")
 
     weatherBox.innerHTML = `
-        <h3 class="cityHeader">??????</h3>
+        <h3 class="cityHeader">${city}</h3>
         <p class="weatherIcon">${data.ICON}</p>
         <div class="weatherInfo">
-            <p class="time">???????</p>
+            <p class="time">kl. ${data.time.slice(11)}</p>
             <div class="degreesContainer">
                 <p class="degrees">${data.temperature}</p>
                 <p class="degreesIcon">°C</p>
