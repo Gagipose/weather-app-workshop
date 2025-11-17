@@ -46,7 +46,7 @@ async function displaySearchedWeather(city) {
     try {
         landingSection.innerHTML = "";  // empty out #container after every search
         let data = await getWeather(city);
-        let newWeatherBox = createWeatherBox(data);
+        let newWeatherBox = createWeatherBox(data, city);
         landingSection.appendChild(newWeatherBox);
 
         console.log(data);
