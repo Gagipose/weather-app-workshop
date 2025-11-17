@@ -96,7 +96,7 @@ button {
     margin-top: 50px;
 }
 
-.weatherCard {
+.weatherBox {
     display: grid;
     border-radius: 25px;
     padding: 40px;
