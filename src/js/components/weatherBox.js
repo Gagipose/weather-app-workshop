@@ -1,7 +1,11 @@
+//Mall för att skapa väderbox med hjälp av data
 export function createWeatherBox(data, city) {
+
+    //Lägg till väderbox på sidan
     const weatherBox = document.createElement("div")
     weatherBox.classList.add("weatherBox")
 
+    //Ändra HTML-innehållet i boxen
     weatherBox.innerHTML = `
         <h3 class="cityHeader">${city}</h3>
         <p class="weatherIcon">${data.ICON}</p>
