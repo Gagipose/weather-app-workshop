@@ -12,7 +12,7 @@ export function createWeatherBox(data, city) {
         <div class="weatherInfo">
             <p class="time">kl. ${data.time.slice(11)}</p>
             <div class="degreesContainer">
-                <p class="degrees">${data.temperature}</p>
+                <p class="degrees">${Math.round(data.temperature)}</p>
                 <p class="degreesIcon">°C</p>
             </div>
             <p class="weatherDescription lightText">${!data.DESCRIPTION ? "Soligt" : data.DESCRIPTION}</p>
