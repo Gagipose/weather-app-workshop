@@ -2,12 +2,10 @@ import { getWeather } from "./services/api.js";
 import { createWeatherBox } from "./components/WeatherBox.js";
 import { getDayName, getMonthName } from "./services/time.js";
 import { createNewElement } from "./components/createElement.js";
-// import { findCity } from "./components/displayWeather.js";
 
-// async function getCity(/*INPUTVÄRDET*/) {
-//     //Sökfunktion och returna staden??
-// }
+//Behöver läggas till sökfunktion !!! Vi behöver veta format
 
+//Körs när sidan laddats
 function init() {
 
     //Skapa underrubrik
@@ -25,6 +23,7 @@ function init() {
 
 init()
 
+//Hämtar från API och lägger till väderkorten på sidan
 async function displayWeather(city) {
     const landingSection = document.querySelector("#container")
 
