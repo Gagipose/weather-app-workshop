@@ -48,9 +48,6 @@ async function displaySearchedWeather(city) {
         let newWeatherBox = createWeatherBox(data, city);
         landingSection.appendChild(newWeatherBox);
 
-        console.log(data);
-        console.log(newWeatherBox);
-
     } catch(error) {
         console.error(`Ett fel uppstod ${error.message}`)
     }
