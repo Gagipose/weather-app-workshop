@@ -9,12 +9,15 @@ import { createNewElement } from "./components/createElement.js";
 // }
 
 function init() {
+
+    //Skapa underrubrik
     const today = new Date()
-    let text = `${getDayName(today)}`
+    let text = `${getDayName(today)} ${today.getDate()} ${getMonthName(today)}`
     const headingsContainer = document.querySelector("#headings")
     const subHeading = createNewElement("h2", text, "lightText")
     headingsContainer.appendChild(subHeading)
     
+    //Skapa default väderkorten
     displayWeather("Stockholm")
     displayWeather("Göteborg")
     displayWeather("Malmö")
