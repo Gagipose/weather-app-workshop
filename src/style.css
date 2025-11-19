@@ -61,17 +61,18 @@ body {
 }
 
 input {
+    
     margin: 30px 0;
     border: none;
     height: 40px;
     width: 450px;
     padding: 5px 20px;
     border-radius: 50px;
-    color: var(--color-grey-light);
 }
 
-input:focus {
-  outline: 2px solid #ccc;
+/* Ta bort "x" från inputfältet */
+input::-webkit-search-cancel-button {
+  display: none;
 }
 
 button img {
@@ -127,7 +128,7 @@ button {
 
 .weatherInfo {
     grid-area: info;
-    align-self: center;
+    text-align: start;
 }
 
 .degreesContainer {
