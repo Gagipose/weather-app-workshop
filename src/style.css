@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: 400;
 }
 
@@ -108,6 +108,7 @@ button {
     ;
 
     /*Glass effect*/
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     background-color: #ffffff1e;
     border-radius: 25px;
