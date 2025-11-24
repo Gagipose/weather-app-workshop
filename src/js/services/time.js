@@ -5,7 +5,7 @@ export function getDayName(date) {
 }
 
 export function getMonthName(date) {
-    const monthNames = ["Januari", "Februri", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"]
+    const monthNames = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"]
 
     return monthNames[date.getMonth()]
 }
