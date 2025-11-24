@@ -55,4 +55,6 @@ async function displaySearchedWeather(city) {
 
 setInterval(() => {
     displaySearchedWeather("Stockholm")
-}, 60000); // update every 60 seconds
+    displaySearchedWeather("Göteborg")
+    displaySearchedWeather("Malmö")
+}, 900000); // update every 15 minutes
