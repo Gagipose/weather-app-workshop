@@ -21,7 +21,6 @@ function init() {
     displayWeather("Malmö")
 }
 
-init()
 
 //Hämtar från API och lägger till väderkorten på sidan
 async function displayWeather(city) {
@@ -37,24 +36,69 @@ async function displayWeather(city) {
     }
 }
 
+
+
 // remove landingsection and replace with correct contents
 async function displaySearchedWeather(city) {
 
     const landingSection = document.querySelector("#container")
 
     try {
-        landingSection.innerHTML = "";  // empty out #container after every search
-        let data = await getWeather(city);
-        let newWeatherBox = createWeatherBox(data, city);
-        landingSection.appendChild(newWeatherBox);
+        console.log(landingSection)
+        let data = await getWeather(city); // api.js returns object?
+        let newWeatherBox = createWeatherBox(data, city); //
+        landingSection.replaceChildren(newWeatherBox) // empty out #container after every search
 
     } catch(error) {
         console.error(`Ett fel uppstod ${error.message}`)
     }
 };
 
-setInterval(() => {
-    displaySearchedWeather("Stockholm")
-    displaySearchedWeather("Göteborg")
-    displaySearchedWeather("Malmö")
-}, 900000); // update every 15 minutes
+
+// setInterval(() => {
+//     displaySearchedWeather("Stockholm")
+//     displaySearchedWeather("Göteborg")
+//     displaySearchedWeather("Malmö")
+// }, 900000); // update every 15 minutes
+
+
+// connect search (returns = "Göteborg")
+// connect fetch (input search, return = object)
+// connect weatherbox (display result)
+
+
+// SEARCH RETURNS "Göteborg"
+
+// createwetherbox behöver data (object) och (stadsnamn)
+
+
+// **** REPLACE WITH SEARCH FUNKTION/MODULE LATER ****
+function placeHolderFunction() {
+    return "Göteborg"
+}
+const searchBtn = document.getElementById("searchIcon");
+const searchbar = document.getElementById("search")
+
+
+function handleSearch() {
+    //searchString comes from the funktion being built by ahm
+
+    // 1. press enter on input
+    searchbar.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+            // kör ahms funktion (tar input och konverterar)
+            const userSearch = placeHolderFunction()
+            displaySearchedWeather(userSearch)
+        }
+    });
+    // 2. press search icon
+    searchBtn.addEventListener("click", e => {
+        const userSearch = placeHolderFunction()
+        displaySearchedWeather(userSearch)
+    }) 
+};
+
+
+// ---- Run functions: ----
+init()
+handleSearch()
