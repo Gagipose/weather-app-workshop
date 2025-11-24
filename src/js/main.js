@@ -1,5 +1,5 @@
 import { getWeather } from "./services/api.js";
-import { createWeatherBox } from "./components/WeatherBox.js";
+import { createWeatherBox, createExtendedWeatherBox } from "./components/WeatherBox.js";
 import { getDayName, getMonthName } from "./services/time.js";
 import { createNewElement } from "./components/createElement.js";
 import { searchCity } from "./components/searchInput.js";
