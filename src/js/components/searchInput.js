@@ -12,12 +12,10 @@ export function searchCity() {
         );
     }
 
-    function runSearchCity() {
-        const city = formatSearchCity(input.value);
-
-        if (!CITIES[city]) {
+    const city = formatSearchCity(input.value);
+    
+    if (!CITIES[city]) {
             document.getElementById("container").textContent = `Staden finns inte...`;
             return;
         }
-    }
 }
