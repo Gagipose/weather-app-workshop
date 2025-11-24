@@ -43,6 +43,7 @@ p {
 
 .lightText {
     color: var(--color-grey-light);
+    margin-top: 20px;
 }
 
 /* ----- GLOBAL ----- */
@@ -51,13 +52,14 @@ body {
     flex-direction: column;
     background-image: url(./images/background.jpg);   background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: auto;
 }
 
 /* ----- SEARCH BAR ----- */
 #searchBar {
     position: relative;
     display: inline-block;
+    margin-top: 20px;
 }
 
 input {
@@ -91,22 +93,24 @@ button {
 
 /* ----- CARDS ----- */
 #container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-self: center;
     color: var(--color-white);
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    gap: 10px;
 }
 
 .weatherBox {
     display: grid;
     border-radius: 25px;
-    padding: 40px;
+    padding:30px;
     margin: 10px;
+    justify-content: center;
     grid-template-areas: 
     "city city"
-    "icon info"
-    ;
-
+    "icon info" ;
     /*Glass effect*/
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -115,6 +119,50 @@ button {
     border: 1px solid #ffffff73;
     box-shadow: 0 8px 32px #cccccca9,
     inset 0 0 20px 10px #ffffff73;
+}
+
+.weatherBox:first-child {
+  grid-column: 1 / -1;
+}
+
+
+
+/* ----- MEDIA QUERIES ----- */
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  #container {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 12px;
+    justify-content: center; 
+    align-items: start;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .weatherBox:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .weatherBox {
+    justify-self: stretch; 
+  }
+}
+
+@media (min-width: 1024px) {
+  #container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+    max-width: none;
+    margin: 0; 
+    margin-top: 100px;
+  }
+
+  
+  .weatherBox:first-child {
+    grid-column: auto;
+  }
 }
 
 .cityHeader {
@@ -135,3 +183,4 @@ button {
 .degreesContainer {
     display: flex; /*Sätter gradtecknet bredvid siffran*/
 }
+
