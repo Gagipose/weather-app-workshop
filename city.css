@@ -112,7 +112,7 @@ text-align: start;
     
 }
 .date{
-    font-size: 0.60rem ;
+    font-size: 0.6rem ;
     text-align: start;
      margin: 0.3rem 0;
     word-wrap: break-word;
@@ -121,7 +121,7 @@ text-align: start;
     
 }
 .temperature {
-    font-size: 0.5rem ;
+    font-size: 0.6rem ;
     text-align: end;
 }
 .weatherCard1 h2{
