@@ -2,6 +2,7 @@ import { getWeather } from "./services/api.js";
 import { createWeatherBox } from "./components/WeatherBox.js";
 import { getDayName, getMonthName } from "./services/time.js";
 import { createNewElement } from "./components/createElement.js";
+import { searchCity } from "./components/searchInput.js";
 
 //Behöver läggas till sökfunktion !!! Vi behöver veta format
 
@@ -46,15 +47,30 @@ async function displaySearchedWeather(city) {
     try {
         console.log(landingSection)
         let data = await getWeather(city); // api.js returns object?
-        let newWeatherBox = createExtendedWeatherBox(data, city); //
+        let newWeatherBox = createWeatherBox(data, city); //
         landingSection.replaceChildren(newWeatherBox) // empty out #container after every search
 
     } catch(error) {
-        console.error(`Ett fel uppstod ${error.message}`)
+        document.getElementById("container").textContent = "Staden finns inte...";
     }
 };
 
 
+// setInterval(() => {
+//     displaySearchedWeather("Stockholm")
+//     displaySearchedWeather("Göteborg")
+//     displaySearchedWeather("Malmö")
+// }, 900000); // update every 15 minutes
+
+
+// connect search (returns = "Göteborg")
+// connect fetch (input search, return = object)
+// connect weatherbox (display result)
+
+
+// SEARCH RETURNS "Göteborg"
+
+// createwetherbox behöver data (object) och (stadsnamn)
 
 
 // **** REPLACE WITH SEARCH FUNKTION/MODULE LATER ****
@@ -72,13 +88,13 @@ function handleSearch() {
     searchbar.addEventListener("keydown", e => {
         if (e.key === "Enter") {
             // kör ahms funktion (tar input och konverterar)
-            const userSearch = placeHolderFunction()
+            const userSearch = searchCity()
             displaySearchedWeather(userSearch)
         }
     });
     // 2. press search icon
     searchBtn.addEventListener("click", e => {
-        const userSearch = placeHolderFunction()
+        const userSearch = searchCity()
         displaySearchedWeather(userSearch)
     }) 
 };

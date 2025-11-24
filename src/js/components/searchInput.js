@@ -13,9 +13,6 @@ export function searchCity() {
     }
 
     const city = formatSearchCity(input.value);
-    
-    if (!CITIES[city]) {
-            document.getElementById("container").textContent = `Staden finns inte...`;
-            return;
-        }
+
+    return city;
 }
