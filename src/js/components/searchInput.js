@@ -1,6 +1,6 @@
 export function searchCity() {
-    const input = document.getElementById("searchInput");
-    const button = document.getElementById("searchBtn");
+    const input = document.getElementById("search");
+    const button = document.getElementById("searchIcon");
 
     function formatSearchCity(name) {
         if (!name) return "";
