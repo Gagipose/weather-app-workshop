@@ -46,7 +46,7 @@ async function displaySearchedWeather(city) {
     try {
         console.log(landingSection)
         let data = await getWeather(city); // api.js returns object?
-        let newWeatherBox = createWeatherBox(data, city); //
+        let newWeatherBox = createExtendedWeatherBox(data, city); //
         landingSection.replaceChildren(newWeatherBox) // empty out #container after every search
 
     } catch(error) {
@@ -55,21 +55,6 @@ async function displaySearchedWeather(city) {
 };
 
 
-// setInterval(() => {
-//     displaySearchedWeather("Stockholm")
-//     displaySearchedWeather("Göteborg")
-//     displaySearchedWeather("Malmö")
-// }, 900000); // update every 15 minutes
-
-
-// connect search (returns = "Göteborg")
-// connect fetch (input search, return = object)
-// connect weatherbox (display result)
-
-
-// SEARCH RETURNS "Göteborg"
-
-// createwetherbox behöver data (object) och (stadsnamn)
 
 
 // **** REPLACE WITH SEARCH FUNKTION/MODULE LATER ****
