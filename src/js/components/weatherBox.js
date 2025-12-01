@@ -10,7 +10,7 @@ export function createWeatherBox(data, city) {
         <h3 class="cityHeader">${city}</h3>
         <p class="weatherIcon">${!data.ICON ? "☀️" : data.ICON}</p>
         <div class="weatherInfo">
-            <p class="time">kl. ${data.time.slice(11)}</p>
+            <p class="time">${data.time.slice(11)}</p>
             <div class="degreesContainer">
                 <p class="degrees">${Math.round(data.temperature)}</p>
                 <p class="degreesIcon">°C</p>
@@ -33,7 +33,7 @@ export function createExtendedWeatherBox(data, city) {
         <h3 class="cityHeader">${city}</h3>
         <p class="weatherIcon">${!data.ICON ? "☀️" : data.ICON}</p>
         <div class="weatherInfo">
-            <p class="time">kl. ${data.time.slice(11)}</p>
+            <p class="time">${data.time.slice(11)}</p>
             <div class="degreesContainer">
                 <p class="degrees">${Math.round(data.temperature)}</p>
                 <p class="degreesIcon">°C</p>
