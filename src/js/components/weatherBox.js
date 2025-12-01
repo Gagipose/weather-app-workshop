@@ -1,50 +1,50 @@
+import { createNewElement } from "./createElement.js"
+
 //Mall för att skapa väderbox med hjälp av data
 export function createWeatherBox(data, city) {
 
-    //Lägg till väderbox på sidan
+    //Skapa weatherbox
     const weatherBox = document.createElement("div")
     weatherBox.classList.add("weatherBox")
 
-    //Ändra HTML-innehållet i boxen
-    weatherBox.innerHTML = `
-        <h3 class="cityHeader">${city}</h3>
-        <p class="weatherIcon">${!data.ICON ? "☀️" : data.ICON}</p>
-        <div class="weatherInfo">
-            <p class="time">${data.time.slice(11)}</p>
-            <div class="degreesContainer">
-                <p class="degrees">${Math.round(data.temperature)}</p>
-                <p class="degreesIcon">°C</p>
-            </div>
-            <p class="weatherDescription lightText">${!data.DESCRIPTION ? "Soligt" : data.DESCRIPTION}</p>
-        </div>
-    `
+    //Lägg till rubrik och ikon
+    weatherBox.appendChild(createNewElement("h3", `${city}`, "cityHeader"))
+    weatherBox.appendChild(createNewElement("p", `${!data.ICON ? "☀️" : data.ICON}`, "weatherIcon"))
+
+    //Skapa weatherInfo
+    const weatherInfo = createNewElement("div", "", "weatherInfo")
+    weatherBox.appendChild(weatherInfo)
+
+    //Lägg till tid
+    weatherInfo.appendChild(createNewElement("p", `${data.time.slice(11)}`, "time"))
+    
+    //Lägg till temperatur
+    const degreesContainer = createNewElement("div", "", "degreesContainer")
+    weatherInfo.appendChild(degreesContainer)
+
+    degreesContainer.appendChild(createNewElement("p", `${Math.round(data.temperature)}`, "degrees"))
+    degreesContainer.appendChild(createNewElement("p", `°C`, "degreesIcon"))
+
+    //Lägg till beskrivning i weatherInfo
+    const weatherDescription = createNewElement("p", `${!data.DESCRIPTION ? "Soligt" : data.DESCRIPTION}`)
+    weatherDescription.classList.add("weatherDescription", "lightText")
+    weatherInfo.appendChild(weatherDescription)
 
     return weatherBox
 }
 
 export function createExtendedWeatherBox(data, city) {
-     //Lägg till väderbox på sidan
-    const weatherBox = document.createElement("div")
-    weatherBox.classList.add("weatherBox")
-    weatherBox.classList.add("extendedWeatherBox")
+    
+    //Kör tidigare funktion först
+    const weatherBox = createWeatherBox(data, city)
 
-    //Ändra HTML-innehållet i boxen
-    weatherBox.innerHTML = `
-        <h3 class="cityHeader">${city}</h3>
-        <p class="weatherIcon">${!data.ICON ? "☀️" : data.ICON}</p>
-        <div class="weatherInfo">
-            <p class="time">${data.time.slice(11)}</p>
-            <div class="degreesContainer">
-                <p class="degrees">${Math.round(data.temperature)}</p>
-                <p class="degreesIcon">°C</p>
-            </div>
-            <p class="weatherDescription lightText">${!data.DESCRIPTION ? "Soligt" : data.DESCRIPTION}</p>
-        </div>
-        <div class="extendedInfo">
-            </p>Vindstyrka: ${Math.round(data.windspeed * 0.278)} m/s
-            </p>Luftfuktighet: ${Math.round(data.LUFTFUKTIGHET * 0.278)}
-        </div>
-    `
+    //Skapa extendedInfo container
+    const extendedInfo = createNewElement("div", "", "extendedInfo")
+    weatherBox.appendChild(extendedInfo)
+
+    //Lägg till vindstyrka och luftfuktighet
+    extendedInfo.appendChild(createNewElement("p", `Vindstyrka: ${Math.round(data.windspeed * 0.278)} m/s`))
+    extendedInfo.appendChild(createNewElement("p", `Luftfuktighet: ${Math.round(data.LUFTFUKTIGHET * 0.278)} ENHET`))
 
     return weatherBox
 }
