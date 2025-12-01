@@ -3,6 +3,7 @@ import { createWeatherBox, createExtendedWeatherBox } from "./components/Weather
 import { getDayName, getMonthName } from "./services/time.js";
 import { createNewElement } from "./components/createElement.js";
 import { searchCity } from "./components/searchInput.js";
+import { searchHistory, addSearchedItem } from "./components/SearchHistory.js";
 
 //Behöver läggas till sökfunktion !!! Vi behöver veta format
 
@@ -47,8 +48,27 @@ async function displaySearchedWeather(city) {
     try {
         console.log(landingSection)
         let data = await getWeather(city); // api.js returns object?
-        let newWeatherBox = createWeatherBox(data, city); //
-        landingSection.replaceChildren(newWeatherBox) // empty out #container after every search
+        addSearchedItem(data, city)
+        console.log(searchHistory)
+        landingSection.innerHTML = ""
+
+
+        searchHistory.forEach(searchItem => {
+            let newWeatherBox = createWeatherBox(searchItem.apiDataObject, searchItem.city)
+            console.log(searchItem.apiDataObject)
+            console.log(searchItem.city)
+            landingSection.appendChild(newWeatherBox)
+        })
+        // make for loop: 
+            // for each item in searchistory, createweatherbox
+        // let len = searchHistory.length
+        // for (let i = 0; i < len; i++) {
+        //     searchHistory.forEach(city)
+        //     console.log(searchHistory[0])
+        //     let newWeatherBox = createWeatherBox(searchHistory[i].apiDataObject, city)
+        //     landingSection.appendChild(newWeatherBox);
+        // };
+
 
     } catch(error) {
         document.getElementById("container").textContent = "Staden finns inte...";
@@ -56,27 +76,6 @@ async function displaySearchedWeather(city) {
 };
 
 
-// setInterval(() => {
-//     displaySearchedWeather("Stockholm")
-//     displaySearchedWeather("Göteborg")
-//     displaySearchedWeather("Malmö")
-// }, 900000); // update every 15 minutes
-
-
-// connect search (returns = "Göteborg")
-// connect fetch (input search, return = object)
-// connect weatherbox (display result)
-
-
-// SEARCH RETURNS "Göteborg"
-
-// createwetherbox behöver data (object) och (stadsnamn)
-
-
-// **** REPLACE WITH SEARCH FUNKTION/MODULE LATER ****
-function placeHolderFunction() {
-    return "Göteborg"
-}
 const searchBtn = document.getElementById("searchIcon");
 const searchbar = document.getElementById("search")
 
