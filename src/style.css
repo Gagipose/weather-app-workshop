@@ -181,7 +181,24 @@ button {
 
 /* ----- MEDIA QUERIES ----- */
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
+
+    #container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .weatherBox:first-child {
+        grid-column: auto;
+    }
+
+    .weatherBox {
+        padding: var(--space-xxl);
+    }
+}
+
+@media (min-width: 600px) {
     :root {
         /*Typografi*/
         --font-size-sm: 0.75rem;  /* 12px */
@@ -193,20 +210,18 @@ button {
         --font-sixe-3xl: 3rem; /* 48px */
     }
 
-    #container {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start;
-        max-width: none;
-        gap: var(--space-xl);
+    input {
+        margin-top: 0;
+    }
+
+    button {
+        top: 22px;
     }
 
     .weatherBox {
-        padding: var(--space-xxl);
+        padding: var(--space-lg);
     }
-
-    .weatherBox:first-child {
-        grid-column: auto;
-    }
+    
 
     .weatherIcon {
         font-size: 6rem;
