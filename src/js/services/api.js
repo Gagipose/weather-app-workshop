@@ -1,4 +1,5 @@
-/* //Placeholder städer
+/* 
+//Placeholder städer
 const CITIES = {
 	"Stockholm": { country: "SE", lat: 59.3293, lon: 18.0686 },
 	"Göteborg": { country: "SE", lat: 57.7089, lon: 11.9746 },
@@ -83,3 +84,38 @@ const WEATHER_MAP = {
     96: { desc: "Åska med lätt hagel", icon: "⛈️🌨️" },
     99: { desc: "Åska med kraftigt hagel", icon: "⛈️❄️" }
 };
+
+const BASE_URL = "http://kontoret.onvo.se:10180/api/v1";
+
+export async function getWeather(city) {
+    try {
+        const geoResponse = await fetch (`${BASE_URL}/geo?city=${encodeURIComponent(city)}`);
+        const geo = await geoResponse.json();
+
+        if (!geo || !geo.latitude || !geo.longitude) {
+            return { error: "Staden kunde inte hittas." };
+        }
+
+        const gwdResponse = await fetch (`${BASE_URL}/gwd?lat=${geo.latitude}&lon=${geo.longitude}`);
+        const gwd = await gwdResponse.json();
+
+        if (!gwd || !gwd.current) {
+            return { error: "Ingen väderdata hittades." };
+        }
+
+        const current = gwd.current;
+        const weatherInfo = WEATHER_MAP[current.weather_code] || { desc: "Okänt", icon: "❓" };
+        
+        return {
+            city: city,
+            time: current.time,
+            temperature: current.temperature_2m,
+            code: current.weather_code,
+            description: weatherInfo.desc,
+            icon: weatherInfo.icon,
+        };
+    } catch (error) {
+        console.error('Det funkar inte!', error);
+        return { error: "API-förfrågan misslyckades." };
+    }
+}
