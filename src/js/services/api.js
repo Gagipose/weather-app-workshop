@@ -89,7 +89,7 @@ const BASE_URL = "http://kontoret.onvo.se:10180/api/v1";
 
 export async function getWeather(city) {
     try {
-        const geoResponse = await fetch (`${BASE_URL}/geo?city=${encodeURIComponent(city)}`);
+        const geoResponse = await fetch (`${BASE_URL}/gwd?city=${encodeURIComponent(city)}`);
         const geo = await geoResponse.json();
 
         if (!geo || !geo.latitude || !geo.longitude) {
