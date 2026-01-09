@@ -89,28 +89,29 @@ const BASE_URL = "http://kontoret.onvo.se:10180/api/v1";
 
 export async function getWeather(city) {
     try {
-        const geoResponse = await fetch (`${BASE_URL}/gwd?city=${encodeURIComponent(city)}`);
+        const geoResponse = await fetch (`${BASE_URL}/geo?city=${encodeURIComponent(city)}`);
         const geo = await geoResponse.json();
-
-        if (!geo || !geo.latitude || !geo.longitude) {
+        console.log(geo)
+        if (!geo || geo.length === 0) {
             return { error: "Staden kunde inte hittas." };
         }
-
-        const gwdResponse = await fetch (`${BASE_URL}/gwd?lat=${geo.latitude}&lon=${geo.longitude}`);
+        // gwd = get weather data
+        const gwdResponse = await fetch (`${BASE_URL}/gwd?lat=${geo[0].latitude}&lon=${geo[0].longitude}`);
         const gwd = await gwdResponse.json();
-
-        if (!gwd || !gwd.current) {
+       console.log(gwd)
+        if (!gwd) {
             return { error: "Ingen väderdata hittades." };
         }
 
-        const current = gwd.current;
-        const weatherInfo = WEATHER_MAP[current.weather_code] || { desc: "Okänt", icon: "❓" };
+        // API returnerade data direkt, inte i genom "current" -> så jag ändrade till gwd. istället (current.time -> gwd.time)
+        
+        const weatherInfo = WEATHER_MAP[gwd.weather_code] || { desc: "Okänt", icon: "❓" };
         
         return {
             city: city,
-            time: current.time,
-            temperature: current.temperature_2m,
-            code: current.weather_code,
+            time: gwd.time,
+            temperature: gwd.temperature_2m,
+            code: gwd.weather_code,
             description: weatherInfo.desc,
             icon: weatherInfo.icon,
         };

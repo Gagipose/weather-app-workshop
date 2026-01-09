@@ -2,21 +2,21 @@ import { createNewElement } from "./createElement.js"
 
 //Mall för att skapa väderbox med hjälp av data
 export function createWeatherBox(data, city) {
-
+    console.log(data)
     //Skapa weatherbox
     const weatherBox = document.createElement("div")
     weatherBox.classList.add("weatherBox")
 
     //Lägg till rubrik och ikon
     weatherBox.appendChild(createNewElement("h3", `${city}`, "cityHeader"))
-    weatherBox.appendChild(createNewElement("p", `${!data.ICON ? "☀️" : data.ICON}`, "weatherIcon"))
+    weatherBox.appendChild(createNewElement("p", `${data.icon || "☀️"}`, "weatherIcon"))
 
     //Skapa weatherInfo
     const weatherInfo = createNewElement("div", "", "weatherInfo")
     weatherBox.appendChild(weatherInfo)
 
     //Lägg till tid
-    weatherInfo.appendChild(createNewElement("p", `${data.time.slice(11)}`, "time"))
+    // weatherInfo.appendChild(createNewElement("p", `${data.time.slice(11)}`, "time"))
     
     //Lägg till temperatur
     const degreesContainer = createNewElement("div", "", "degreesContainer")
@@ -26,7 +26,7 @@ export function createWeatherBox(data, city) {
     degreesContainer.appendChild(createNewElement("p", `°C`, "degreesIcon"))
 
     //Lägg till beskrivning i weatherInfo
-    const weatherDescription = createNewElement("p", `${!data.DESCRIPTION ? "Soligt" : data.DESCRIPTION}`)
+    const weatherDescription = createNewElement("p", `${data.description || "Soligt"}`)
     weatherDescription.classList.add("weatherDescription", "lightText")
     weatherInfo.appendChild(weatherDescription)
 
